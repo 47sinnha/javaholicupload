@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Question</title>
+       <style>
+        @media(min-width:1499px){
+            /* original css and large screen css */
+        body{
+            background-color: rgb(255, 255, 255);
+        }
+        /* .navbar{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+        } */
+        .navbar {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(249, 170, 170, 0.692); /* Adjust the last value (alpha) for transparency */
+        padding: 15px;
+        backdrop-filter: blur(10px); /* Adjust blur value as needed */
+        border-radius: 10px; /* Add border radius for better aesthetics */
+        }
+        #javaholicLogo{
+            background: url(/questionArraysImages/javaholic_Logo.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 50%;
+            
+        }
+        #user{
+            background: url(/questionArraysImages/User-Profile-PNG-Image.png) center/cover;
+            height: 40px;
+            width: 40px;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #hambrugermenu{
+            background: url(/questionArraysImages/hamburger-menu-more-svgrepo-com\ \(1\).png) center/cover;
+            height: 40px;
+            width: 40px;
+            border: none;
+            cursor: pointer;
+       
+        }
+        .head{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            display: block;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer; 
+            border: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+        }
+        .problem1button{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            height: 50px;
+            width: 300px;
+            display: block;
+            margin: 0 auto; 
+            text-align: center;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #problem{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            height: 250px;
+            width: 500px;
+            margin-top: 10px; 
+            margin: 0 auto; 
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Apply the animation to the element */
+        #problem {
+            animation: fade 0.5s ease; /* Change the duration and easing function as needed */
+        }
+        
+        #question{
+            animation: fade 0.5s ease; 
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .leetcode{
+            background: url(/questionArraysImages/leetcode.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+        }
+        .button-text{
+            margin-top: 60px;
+            font-size: 10px;
+        }
+        .javaholicLogo{
+            background: url(/questionArraysImages/javaholic_Logo.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .youtube{
+            background: url(/questionArraysImages/youtube-color-svgrepo-com.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+        }
+        #question{
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #question .problem1button{
+            padding-top: 10px;
+            padding-bottom: 0px;
+            border-radius: 10px;
+        }
+        #me1{
+            display: none;
+        }
+        #me2{
+            display: none;
+        }
+        .imgg{
+            cursor: pointer;
+        }
+        .extra{
+        background-color: white; 
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+        height: 35vh;
+        margin: 0px;
+        position: fixed;
+        font-size: 30px;
+        top: 0;
+        z-index: 100;
+        width: 34%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+        }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        /* Set the desired color */
+        /* Set the desired border */
+        cursor: pointer;
+    }
+
+    .extra .dropdown{
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        cursor: pointer;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    .extra .dropdown-content {
+        display: block;
+        position: absolute;
+        border: none;
+        min-width: 160px;
+        top: 100%;
+        left: 0px;
+        z-index: 1;
+   }
+   
+   /* Style for the dropdown items */
+    .extra   .dropdown-item {
+     text-decoration: none;
+     padding: 8px 8px;
+     display: block;
+     cursor: pointer;
+     background-color: transparent;
+     font-size: 20px;
+   }
+   
+   /* Change color on hover for dropdown items */
+.extra .dropdown-item:hover {
+     background: lightseagreen;
+     backdrop-filter: blur(50px);
+     border-radius: 10px;
+   }
+
+
+.extra .dropdownone{
+  position: absolute;
+  top: 69.5px;
+  left: 250px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: ;
+  box-sizing: border-box;
+}   
+
+
+.vertical-line {
+        border-left: 1px solid #ccc; /* Color and width of the vertical line */
+        height: 50%;
+        position: absolute;
+        top: 70px;
+        bottom: 0;
+        left: 45%; /* Position in the middle */
+        transform: translateX(-50%); /* Center the line */
+    }
+
+    .izm-0:hover{
+        background: lightseagreen;
+     backdrop-filter: blur(50px);
+     border-radius: 10px;
+   }
+
+   .izm-0 img{
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+   }
+   
+   .izam{
+     color: rgb(0, 0, 0);
+     text-decoration: none;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     display: block;
+     padding: 0px;
+     font-size: 20px;
+     margin-top: -5px;
+   }
+
+   .izm-1 img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+   }
+
+   .dropdown {
+  position: relative;
+}
+
+
+   
+   /* Style for the dropdown button */
+   .dropdown-button {
+     /* padding: 10px; */
+     background-color: #3498db;
+     color: white;
+     border: none;
+     cursor: pointer;
+     font-size: 19px;
+     font-weight: bold;
+     color:#006666; /* You can change the color as needed */
+     text-transform: uppercase;
+   }
+   
+   /* Style for the dropdown content */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Adjust this value */
+  left: 0; /* Adjust this value */
+  z-index: 1;
+}
+
+   
+   /* Style for the dropdown items */
+   .dropdown-item {
+     text-decoration: none;
+     padding: 12px 16px;
+     display: block;
+     cursor: pointer;
+     color: black;
+   }
+   
+   /* Change color on hover for dropdown items */
+   .dropdown-item:hover {
+     background: lightseagreen;
+     backdrop-filter: blur(50px);
+   }
+   
+   /* Show the dropdown content when hovering over the dropdown button */
+   .dropdown:hover .dropdown-content {
+     display: block;
+   }
+}
+ 
+@media(max-width:1499px){
+             /* original css and large screen css */
+             body{
+            background-color: rgb(255, 255, 255);
+        }
+        /* .navbar{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+        } */
+        .navbar {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(249, 170, 170, 0.692); /* Adjust the last value (alpha) for transparency */
+        padding: 15px;
+        backdrop-filter: blur(10px); /* Adjust blur value as needed */
+        border-radius: 10px; /* Add border radius for better aesthetics */
+        }
+        #javaholicLogo{
+            background: url(/questionArraysImages/javaholic_Logo.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 50%;
+            
+        }
+        #user{
+            background: url(/questionArraysImages/User-Profile-PNG-Image.png) center/cover;
+            height: 40px;
+            width: 40px;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #hambrugermenu{
+            background: url(/questionArraysImages/hamburger-menu-more-svgrepo-com\ \(1\).png) center/cover;
+            height: 40px;
+            width: 40px;
+            border: none;
+            cursor: pointer;
+       
+        }
+        .head{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            display: block;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer; 
+            border: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+        }
+        .problem1button{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            height: 50px;
+            /* width: 300px; */
+            /* width: 200px; */
+            display: block;
+            margin: 0 auto; 
+            text-align: center;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #problem{
+            background-color: rgba(249, 170, 170, 0.6);
+            backdrop-filter: blur(10px);
+            /* height: 250px; */
+            height: auto;
+            /* width: 500px; */
+            margin-top: 10px; 
+            margin: 0 auto; 
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Apply the animation to the element */
+        #problem {
+            animation: fade 0.5s ease; /* Change the duration and easing function as needed */
+        }
+        
+        #question{
+            animation: fade 0.5s ease; 
+        }
+
+        .buttons{
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .leetcode{
+            background: url(/questionArraysImages/leetcode.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+        }
+        .button-text{
+            margin-top: 60px;
+            font-size: 10px;
+        }
+        .javaholicLogo{
+            background: url(/questionArraysImages/javaholic_Logo.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .youtube{
+            background: url(/questionArraysImages/youtube-color-svgrepo-com.png)center/cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+        }
+        #question{
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #question .problem1button{
+            padding-top: 10px;
+            padding-bottom: 0px;
+            border-radius: 10px;
+        }
+        #me1{
+            display: none;
+        }
+        #me2{
+            display: none;
+        }
+        .imgg{
+            cursor: pointer;
+        }
+        .extra{
+        background-color: white; 
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+        height: 35vh;
+        margin: 0px;
+        position: fixed;
+        font-size: 30px;
+        top: 0;
+        z-index: 100;
+        /* width: 34%; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        overflow: scroll;
+        }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        /* Set the desired color */
+        /* Set the desired border */
+        cursor: pointer;
+    }
+
+    .extra .dropdown{
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        cursor: pointer;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    .extra .dropdown-content {
+        display: block;
+        position: absolute;
+        border: none;
+        min-width: 160px;
+        top: 100%;
+        left: 0px;
+        z-index: 1;
+   }
+   
+   /* Style for the dropdown items */
+    .extra   .dropdown-item {
+     text-decoration: none;
+     padding: 8px 8px;
+     display: block;
+     cursor: pointer;
+     background-color: transparent;
+     font-size: 20px;
+   }
+   
+   /* Change color on hover for dropdown items */
+.extra .dropdown-item:hover {
+     background: lightseagreen;
+     backdrop-filter: blur(50px);
+     border-radius: 10px;
+   }
+
+
+.extra .dropdownone{
+  position: absolute;
+  top: 69.5px;
+  left: 250px;
+  cursor: pointer;
+  display: flex;
+  box-sizing: border-box;
+}   
+
+
+
+
+    .izm-0:hover{
+        background: lightseagreen;
+     backdrop-filter: blur(50px);
+     border-radius: 10px;
+   }
+
+   .izm-0 img{
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+   }
+   
+   .izam{
+     color: rgb(0, 0, 0);
+     text-decoration: none;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     display: block;
+     padding: 0px;
+     font-size: 20px;
+     margin-top: -5px;
+   }
+
+   .izm-1 img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+   }
+
+   .dropdown {
+  position: relative;
+}
+
+
+   
+   /* Style for the dropdown button */
+   .dropdown-button {
+     /* padding: 10px; */
+     background-color: #3498db;
+     color: white;
+     border: none;
+     cursor: pointer;
+     font-size: 19px;
+     font-weight: bold;
+     color:#006666; /* You can change the color as needed */
+     text-transform: uppercase;
+   }
+   
+   /* Style for the dropdown content */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Adjust this value */
+  left: 0; /* Adjust this value */
+  z-index: 1;
+}
+
+   
+   /* Style for the dropdown items */
+   .dropdown-item {
+     text-decoration: none;
+     padding: 12px 16px;
+     display: block;
+     cursor: pointer;
+     color: black;
+   }
+   
+   /* Change color on hover for dropdown items */
+   .dropdown-item:hover {
+     background: lightseagreen;
+     backdrop-filter: blur(50px);
+   }
+   
+   /* Show the dropdown content when hovering over the dropdown button */
+   .dropdown:hover .dropdown-content {
+     display: block;
+   }   
+}
+
+
+
+
+
+
+
+@media(max-width:1499px){
+.extra{
+    width: 97%;
+  }
+}
+
+
+/* @media(max-width:502px){
+.extra{
+    width: 97%;
+  }
+} */
+
+
+
+
+    </style>
+</head>
+<body>
+     <div class="container">
+    <form action="/arrayquestion" method="post">
+    <div class="navbar">
+        <button type="button" id="hambrugermenu" onclick="onClickMenu()"></button>
+        <button type="button" id="javaholicLogo"></button>
+        <div class="dropdown">  
+        <button type="button" id="user"></button>
+            <div class="dropdown-content">
+                <a style="background-color: black; color:white"   class="dropdown-item" href="/logout">LogOut</a>
+            </div>
+            </div>
+    </div>
+    <button type="button" class="head" onclick="show()">ARRAY's PROBLEMS</button>
+    <div id="question">
+        <p class="problem1button" onclick="unblockingproblemstatement()">(P1)Sort The Array</p>
+    </div>
+    <div id="problem">
+        <p style="margin-left: 10px; margin-right: 10px; padding: 10px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Problem Statement:-Given an array of size n, write a program to check if the given array is sorted in (ascending / Increasing / Non-decreasing) order or not. If the array is sorted then return True, Else return False.</p>
+        <p>Note: Two consecutive equal values are considered to be sorted.</p>
+        <div class="buttons">
+        <button type="button" class="leetcode">
+            <a href="https://www.google.com" style="text-decoration: none;"><p class="button-text">Leetcode</p></a>
+        </button>
+
+        <button type="button" class="javaholicLogo">
+            <a href="/arraysolution" style="text-decoration: none;" target="_blank"><p class="button-text">JavaHolic Solution</p></a>
+        </button>
+        
+
+        <button type="button" class="youtube">
+            <a href="https://www.google.com" style="text-decoration: none;"><p class="button-text">Youtube Solution</p></a>
+        </button>
+        </div>
+    </div>
+    <div class="extra" id="me4">
+        <div class="close-button" onclick="hide()">
+         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+         </svg>
+    </div>
+
+           <div class="boxdown">
+           <div class="dropdown">
+           <input type="button" class="dropdown-button"  value="DSA SOLUTION" style="border: none ; background: none; cursor: pointer;">
+           <div class="dropdown-content">
+               <a class="dropdown-item" href="#">STRING</a>
+               <a class="dropdown-item" href="#">HASHMAP</a>
+           </div>
+           </div>
+
+            <div class="vertical-line"></div>
+
+           <div class="dropdownone">
+               <input type="button" class="dropdown-button"  value="Contact Us"  style="border: none; background: none; cursor: pointer;">
+               <div class="dropdown-content">
+                   <div class="izm-0" style="display: flex; height: 25px; width:160px;   padding: 9px;">
+                       <img src="/questionArraysImages/toppng.com-ew-instagram-logo-transparent-related-keywords-logo-instagram-vector-2017-515x515.png" alt="">
+                       <a class="izam"  style="padding: 2px;"  href="https://www.instagram.com/javaholic_01?igsh=M3JtdXN0OGRsYjI4" target="_blank">INSTAGRAM</a>
+                   </div>
+                   <div class="izm-0" style="display: flex; height: 20px; width:160px;    padding: 9px;">
+                       <img src="/questionArraysImages/Gmail_Logo_512px.png" alt="" srcset="">
+                   <a class="izam"  style="padding: 2px;"    href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=javaholicnoreply@gmail.com" target="_blank">EMAIL</a>
+                   </div>
+               </div>
+           </div>
+           </div>
+    </div>
+</form>
+    </div>
+    <!-- javascript starts here -->
+    <script>
+        function block(){
+            document.getElementById("question").style.display="none"; 
+        }
+        block(); 
+
+        function show() {
+            if(document.getElementById("question").style.display==="block"){
+                return document.getElementById("question").style.display="none"; 
+            }
+            else{
+            document.getElementById("question").style.display="block";
+            }
+        }
+
+        function blockingproblemstatement() {
+            document.getElementById("problem").style.display="none"; 
+        }
+        blockingproblemstatement(); 
+
+        function unblockingproblemstatement() {
+            if(document.getElementById("problem").style.display==="block"){
+                return document.getElementById("problem").style.display="none"; 
+            }else{
+            document.getElementById("problem").style.display="block";
+            }
+        }
+
+        
+        function hide(){
+          document.getElementById("me4").style.display="none";
+        }
+
+        function onClickMenu(){
+          if(document.getElementById("me4").style.display==="block"){
+              return  document.getElementById("me4").style.display="none";
+          }
+          else{
+            document.getElementById("me4").style.display="block"; 
+          }
+        }
+
+        hide(); 
+
+    </script>
+</body>
+</html>

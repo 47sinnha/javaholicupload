@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaHolic Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+ 
+        
+        
+  @media(min-width:500px){
+  
+
+
+
+
+  body{
+        background-color: rgb(220,219,219);
+    }
+    .login-container{
+        align-items: center;
+        width: 500px;
+        margin: 0px auto;
+        text-align: center;
+        margin-top: 40px;
+        border-radius: 20px;
+        box-shadow: 15px 15px 10px black;
+    }
+    
+    h2{
+        background-color: rgb(86, 133, 160);
+        color: rgb(255, 255, 255);
+        padding: 30px;
+        margin-top: 0px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        margin-bottom: 1px;
+        font-size: 60px;
+    }
+    
+    .container{
+        margin: 0px;
+        background: white; 
+        padding: 20px;
+    }
+    
+    .form{
+        border: 1px solid lightgray;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 30px;
+    }
+    
+    .btn{
+        display: flex;
+        margin-top: 0px;
+        border: 1px solid lightgray;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 0px;
+    }
+    
+    .signin{
+        /* background: linear-gradient(to bottom, #01ff6b, #01ff6b 5%, white 1%, white); */
+        /* background-color: white; */
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        width: 50%;
+        cursor: pointer;
+    }
+    .signup{
+        /* background: linear-gradient(to bottom, #01ff6b, #01ff6b 5%, white 1%, white); */
+        /* background-color: white; */
+        border: 1px solid lightgrey;
+        width: 50%;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .form input{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: medium;
+        border-radius: 1px;
+        margin-left: 1px;
+        border: 1px solid lightgrey;
+    }
+    
+    .form input:hover{
+        border: 2px solid rgb(28,172,92);
+    }
+    
+    input:focus{
+        outline: none;
+    }
+    
+    button:focus{
+        outline: none;
+    }
+    
+    a:focus{
+        outline: none;
+    }
+    
+    .form a {
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        color: #666;
+      }
+    
+    a:hover{
+        color: green;
+        text-decoration: underline;
+    
+    }  
+    
+    .form button{
+        padding: 10px;
+        margin-top: 30px;
+        background-color:rgb(28,172,92);
+        color: white;
+        border: 0px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+  .banner {
+  position: relative;
+  background-color: #411e65; /* Set the background color */
+  color: whitesmoke; /* Set the text color */
+  text-align: center;
+  padding: 1px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border-radius: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke; /* Set the close button color */
+}
+
+
+    
+}
+
+/* small screen */
+
+@media(max-width:500px){
+
+
+
+
+    body{
+        background-color: rgb(220,219,219);
+    }
+    .login-container{
+        align-items: center;
+        /* width: 500px; */
+        width: 100%;
+        margin: 0px auto;
+        text-align: center;
+        margin-top: 10px;
+        border-radius: 20px;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2{
+        background-color: rgb(86, 133, 160);
+        color: rgb(255, 255, 255);
+        padding: 30px;
+        margin-top: 0px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        margin-bottom: 1px;
+        font-size: 60px;
+    }
+    
+    .container{
+        margin-top: 0px;
+        margin: 0px;
+        background: white; 
+        padding: 20px;
+    }
+    
+    .form{
+        border: 1px solid lightgray;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 30px;
+        
+        
+    }
+    
+    .btn{
+        display: flex;
+        margin-top: 0px;
+        border: 1px solid lightgray;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 0px;
+    }
+    
+    .signin{
+        /* background: linear-gradient(to bottom, #01ff6b, #01ff6b 5%, white 1%, white); */
+        /* background-color: white; */
+        border: none;
+        padding: 10px;
+        font-size: 20px;
+        width: 50%;
+        cursor: pointer;
+    }
+    .signup{
+        /* background: linear-gradient(to bottom, #01ff6b, #01ff6b 5%, white 1%, white); */
+        /* background-color: white; */
+        border: 1px solid lightgrey;
+        width: 50%;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .form input{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: medium;
+        border-radius: 1px;
+        margin-left: 1px;
+        border: 1px solid lightgrey;
+    }
+    
+    .form input:hover{
+        border: 2px solid rgb(28,172,92);
+    }
+    
+    input:focus{
+        outline: none;
+    }
+    
+    button:focus{
+        outline: none;
+    }
+    
+    a:focus{
+        outline: none;
+    }
+    
+    .form a {
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        color: #666;
+      }
+    
+    a:hover{
+        color: green;
+        text-decoration: underline;
+    
+    }  
+    
+    .form button{
+        padding: 10px;
+        margin-top: 30px;
+        background-color:rgb(28,172,92);
+        color: white;
+        border: 0px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+      .banner {
+  position: relative;
+  background-color: #411e65; /* Set the background color */
+  color: whitesmoke; /* Set the text color */
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border-radius: 10px;
+}
+
+.close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke; /* Set the close button color */
+}
+
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+    <p>Welcome! 🌟 Remember to securely store the login credentials sent to your email during registration. It's crucial for a seamless login experience. Happy exploring!😊</p>
+    <button class="close-button" onclick="closeBanner()">×</button>
+  </div>
+      <div class="login-container">
+        <h2>JavαHolic</h2>
+        <div class="container">
+          <div class="btn">
+            <button class="signin" id="Adi1" onclick="switchtosignin(); changesignup();">Sign In</button>
+            <button class="signup" id="Adi2" onclick="switchtosignup(); changesignin();">Sign Up</button>
+          </div>
+
+          <div class="form">
+            <form action="/home"  method="post" id="signin" autocomplete="off" onsubmit="return validationSignIn()">
+              <input type="text" id="usernameEmail"  name="email"  placeholder="Email"  style="margin-bottom: 10px;">
+              <span id="emr" class="emrd" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left;" ></span>
+              
+              <input type="password" id="password"  name="password"   placeholder="Password" style="margin-bottom:10px;">
+              <span id="paser" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left"></span>
+              
+              <input type="hidden" name="action" value="login">
+              <input type="submit" onclick="return submitForm('signin');" style="background-color:rgb(28,172,92); color:white">
+            </form>
+
+            <form action="/home"  method="post"  autocomplete="off" onsubmit="return validationSignUp()"  id="signup" >
+              <input type="text" id="email" name="email"   placeholder="Email" style="margin-bottom: 10px;">
+              <span id="eer" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left;"></span>
+              <input type="text" id="username"   name="username"   placeholder="Username" style="margin-bottom: 10px;">
+              <span id="uer" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left;"></span>
+              <input type="password" id="signupPassword"   name="password"  placeholder="Password" style="margin-bottom: 10px;">
+              <span id="per" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left;"></span>
+              <input type="password" id="confirmPassword"  name="cp" placeholder="Confirm Password" style="margin-bottom: 10px;">
+              <span id="pper" style= "background-color:rgb(244, 1, 1); color:white; border-radius:1px; float:left;"></span>
+              <input type="hidden" name="action" value="signup">
+              <input type="submit" onclick="return submitForm('signup');" style="background-color: rgb(28,172,92);; color:white">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        
+        function switchtosignin(params) {
+    document.getElementById("signin").style.display="block"; 
+    document.getElementById("signup").style.display="none"; 
+     
+  
+}
+
+function switchtosignup(params) {
+    document.getElementById("signin").style.display="none"; 
+    document.getElementById("signup").style.display="block";
+     
+     
+}
+
+switchtosignin();
+
+let gradientBackground = "linear-gradient(to bottom, #01ff6b, #01ff6b 5%, white 1%, white)";
+
+function changesignup() {
+    document.getElementById("Adi1").style.background = gradientBackground;
+    document.getElementById("Adi2").style.background = "none"; // Reset background for the other button
+    document.getElementById("Adi1").style.backgroundColor = "grey";
+    document.getElementById("Adi2").style.backgroundColor = "white"; // Reset background color for the other button
+    resetForm(); 
+}
+
+function changesignin() {
+    document.getElementById("Adi1").style.background = "none"; // Reset background for the other button
+    document.getElementById("Adi2").style.background = gradientBackground;
+    document.getElementById("Adi1").style.backgroundColor = "white"; // Reset background color for the other button
+    document.getElementById("Adi2").style.backgroundColor = "grey";
+
+    resetForm(); 
+}
+
+
+// Set initial state (Sign In)
+changesignup();
+
+function resetForm() {
+    // Determine which form is currently active
+    var activeFormId;
+
+    if (document.getElementById("signin").style.display === "block") {
+        activeFormId = "signin";
+    } else {
+        activeFormId = "signup";
+    }
+
+    // Reset the active form
+    document.getElementById(activeFormId).reset();
+}
+
+
+
+
+
+
+//validation hai bhai 
+//validating singin 
+
+function validationSignIn() {
+    var usernameEmail = document.getElementById('usernameEmail').value;
+    var password = document.getElementById('password').value; 
+
+
+    if (usernameEmail.trim() == '') {
+        document.getElementById('emr').innerHTML = "Please Fill The Email Id To Proceed Further";
+        return false;
+    }
+
+    if(password.trim() == ''){
+      document.getElementById('paser').innerHTML = "Please Fill Password";
+      return false; 
+    }
+
+    if(usernameEmail.indexOf('@')<=0){
+      document.getElementById('emr').innerHTML ="Invalid Position Of @";
+      return false; 
+    }
+
+    if((usernameEmail.charAt(usernameEmail.length-4)!=".") && (usernameEmail.charAt(usernameEmail.length-3)!=".")){
+      document.getElementById('emr').innerHTML =". Invalid Position";
+      return false; 
+    }
+
+    return true; 
+}
+
+// left work of validationSignIn will be done from server side 
+
+//validating signup 
+
+function validationSignUp() {
+  // Reset error messages
+  document.getElementById('eer').innerHTML = "";
+  document.getElementById('uer').innerHTML = "";
+  document.getElementById('per').innerHTML = "";
+  document.getElementById('pper').innerHTML = ""; 
+  
+
+  var email = document.getElementById('email').value;
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('signupPassword').value;
+  var cp = document.getElementById('confirmPassword').value;
+
+  if (email.trim() == "") {
+    document.getElementById('eer').innerHTML = "Please Fill The Email";
+    return false; 
+  }
+
+  if (email.indexOf('@') <= 0) {
+    document.getElementById('eer').innerHTML = "Invalid Position Of @";
+    return false; 
+  }
+
+  if ((email.charAt(email.length - 4) != ".") && (email.charAt(email.length - 3) != ".")) {
+    document.getElementById('eer').innerHTML = ". Invalid Position";
+    return false; 
+  }
+
+  if (username == "") {
+    document.getElementById('uer').innerHTML = "Enter User Name";
+    return false; 
+  }
+
+  if ((username.length <= 2) || (username.length > 20)) {
+    document.getElementById('uer').innerHTML = "User Length Must Be Between 2 and 20";
+    return false;
+  }
+
+  if (!isNaN(username)) {
+    document.getElementById('uer').innerHTML = "UserName Only Contains Character";
+    return false;  // Optionally, you might want to return false here
+  }
+
+  if(password == ""){
+    document.getElementById('per').innerHTML="Enter Password";
+    return false; 
+  }
+
+  if((password.length<=2) || (password.length>20)){
+    document.getElementById('per').innerHTML="Password length must be between 2 and 20";
+    return false; 
+  }
+
+  if(password!=cp){
+    document.getElementById('pper').innerHTML="Confirm Password Doesn't Match With Above Password";
+    return false; 
+  }
+
+   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      if (!password.match(passwordRegex)) {
+        document.getElementById('per').innerHTML="Password must contains Alphabets,Chara,Symbol";
+        return false; 
+        };
+    return true; 
+}
+
+ 
+/// clears all the inputs tags after form submission 
+function submitForm(formId) {
+    // Allow a brief delay before resetting the form
+    setTimeout(function () {
+        // Clear the form fields
+        document.getElementById(formId).reset();
+         
+    }, 100);
+
+    // Allow the default form submission to proceed
+    return true;
+}
+
+
+////curretly we are not using error alert as error 
+ const errorMessage = "{{ error }}";
+
+      // Display an alert if 'error' variable is present
+      if (errorMessage) {
+        alert(errorMessage);
+      }
+
+  //closing 
+  function closeBanner() {
+      document.querySelector('.banner').style.display = 'none';
+    }
+
+
+
+
+
+
+
+</script>
+  </body>
+</html>
+
+
+
+

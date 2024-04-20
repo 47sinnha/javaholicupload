@@ -1,0 +1,4 @@
+this is completely modified website for deployment and original all is in Final name folder 
+this is copy of final folder
+in this we have connected our mongodb with atlas of mongodb 
+in final folder our mongodb is connected with local host 
