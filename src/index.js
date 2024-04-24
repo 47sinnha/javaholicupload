@@ -94,6 +94,9 @@ const mailGenerator = new Mailgen({
 app.get("/", redirectIfLoggedIn,(req,res) => {
     res.render("intro");
 });
+app.get("/test", redirectIfLoggedIn,(req,res) => {
+    res.send("all are working fine")
+});
 
 
 //In below i have created a cookie geting code in which system check whether the person trying to going on another page is logined or not by verfiying token 
