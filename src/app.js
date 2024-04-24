@@ -1,44 +1,37 @@
-require('dotenv').config(); 
-const jwt = require("jsonwebtoken");
-const {SignInUser, SignUpUser} = require("./mongodb");
+// auth.js
 
-//Verifying user for any page (specific page)
-const auth = async (req, res, next)=>{
- try {
-    const token = req.cookies.jwt;
-    console.log(`here is ${token}`);
-    const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
-    console.log(verifyUser); 
+import jwt from "jsonwebtoken";
+import { SignInUser, SignUpUser } from "./mongodb";
 
-    const user= await SignUpUser.findOne({_id:verifyUser._id});
-    console.log(user);
+const auth = async (req, res, next) => {
+    try {
+        const token = req.cookies.jwt;
+        console.log(`Token: ${token}`);
 
-    req.token = token;
-    req.user = user; 
+        const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
+        console.log("Verified User:", verifyUser);
 
+        const user = await SignUpUser.findOne({ _id: verifyUser._id });
+        console.log("User:", user);
 
-    next(); 
-    //without next it won't be proceed
- } catch (error) {
-    res.render("intro")
- }
-}
+        req.token = token;
+        req.user = user;
 
-//For Session to home page 
-// Add this function after the app.get("/default") route
-//This will prevent user from sending the link after login to his/her friends when  their friends try to use after login website which was sent by user to friends user friends must have to login 
+        next();
+    } catch (error) {
+        res.render("intro");
+    }
+};
 
 const checkAuth = (req, res, next) => {
     try {
         const token = req.cookies.jwt;
 
         if (!token) {
-            return res.redirect("/"); // Redirect to the login page if no token is present
+            return res.redirect("/");
         }
 
-        const verifiedUser = jwt.verify(token, process.env.SECRET_KEY);
-
-        // If the user is authenticated, redirect to the default page
+        jwt.verify(token, process.env.SECRET_KEY);
         res.redirect("/");
     } catch (error) {
         console.error(error);
@@ -46,28 +39,20 @@ const checkAuth = (req, res, next) => {
     }
 };
 
-  
-//To redirect directly when there is bymistake close of website and user have token/cookies 
 const redirectIfLoggedIn = async (req, res, next) => {
     try {
-      // Check if the jwt cookie is present
-      const token = req.cookies.jwt;
-      if (token) {
-        // Verify the token
-        const decoded = jwt.verify(token, process.env.SECRET_KEY);
-        
-        // If the token is valid, redirect the user to the homepage
-        return res.render('home');
-        
-      }
-      // If there is no token, proceed to the next middleware
-      next();
+        const token = req.cookies.jwt;
+
+        if (token) {
+            jwt.verify(token, process.env.SECRET_KEY);
+            return res.render('home');
+        }
+
+        next();
     } catch (error) {
-      console.error(error);
-      return res.status(500).send("Error processing the request");
+        console.error(error);
+        return res.status(500).send("Error processing the request");
     }
-  };
+};
 
-
- 
-module.exports = {auth, checkAuth, redirectIfLoggedIn}; 
+export { auth, checkAuth, redirectIfLoggedIn };
